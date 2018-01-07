@@ -1,8 +1,9 @@
 from huffman import compress
+import collections
 
-data = {'a': 5, 'b': 9, 'c': 12, 'd': 13, 'e': 16, 'f': 45}
-root = compress.compress(data)
-codes = compress.get_codes(root)
+data = 'aab'
+frequencies = collections.Counter(data)
+root = compress.build_tree(frequencies)
+encoded_data = compress.get_encoded_data(root, data)
 
-for char, code in codes.items():
-    print('{}: {}'.format(char, code))
+print(encoded_data)

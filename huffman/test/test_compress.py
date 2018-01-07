@@ -2,12 +2,13 @@ import pytest
 from huffman import compress
 from queue import PriorityQueue
 from huffman.node import Node
+import collections
 
 
 class TestCompress(object):
     def test_create_queue_from_data(self):
-        data = {'a': 1, 'b': 2}
-        q = compress.create_queue_from_data(data)
+        frequencies = {'a': 1, 'b': 2}
+        q = compress.create_queue_from_frequencies(frequencies)
         assert not q.empty()
         assert q.qsize() == 2
         assert q.get()[1] == Node('a', 1)
@@ -30,6 +31,13 @@ class TestCompress(object):
         assert codes['c'] == '1'
 
     def test_compress(self):
-        data = {'a': 1, 'b': 2}
-        root = compress.compress(data)
+        frequencies = {'a': 1, 'b': 2}
+        root = compress.build_tree(frequencies)
         assert type(root) is Node
+
+    def test_get_encoded_data(self):
+        data = 'aab'
+        frequencies = collections.Counter(data)
+        root = compress.build_tree(frequencies)
+        encoded_data = compress.get_encoded_data(root, data)
+        assert encoded_data == '110'

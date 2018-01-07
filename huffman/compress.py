@@ -1,9 +1,19 @@
 from huffman.node import Node
 from queue import PriorityQueue
+import collections
 
 
-def compress(data):
-    q = create_queue_from_data(data)
+def get_encoded_data(root, data):
+    codes = get_codes(root)
+    encoded_data = []
+    for d in data:
+        encoded_data.append(codes[d])
+
+    return ''.join(encoded_data)
+
+
+def build_tree(frequencies):
+    q = create_queue_from_frequencies(frequencies)
     while not (q.qsize() == 1):
         left = q.get()[1]
         right = q.get()[1]
@@ -14,9 +24,9 @@ def compress(data):
     return root
 
 
-def create_queue_from_data(data):
+def create_queue_from_frequencies(frequencies):
     q = PriorityQueue()
-    for k, v in data.items():
+    for k, v in frequencies.items():
         n = Node(k, v)
         q.put((n.freq, n))
     return q
