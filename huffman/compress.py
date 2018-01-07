@@ -3,13 +3,13 @@ from queue import PriorityQueue
 import collections
 
 
-def get_encoded_data(root, data):
+def compress(root, data):
     codes = get_codes(root)
-    encoded_data = []
+    compressed_data = []
     for d in data:
-        encoded_data.append(codes[d])
+        compressed_data.append(codes[d])
 
-    return ''.join(encoded_data)
+    return ''.join(compressed_data)
 
 
 def build_tree(frequencies):

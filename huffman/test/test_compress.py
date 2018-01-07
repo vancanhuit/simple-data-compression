@@ -39,5 +39,5 @@ class TestCompress(object):
         data = 'aab'
         frequencies = collections.Counter(data)
         root = compress.build_tree(frequencies)
-        encoded_data = compress.get_encoded_data(root, data)
-        assert encoded_data == '110'
+        compressed_data = compress.compress(root, data)
+        assert compressed_data == '110'
