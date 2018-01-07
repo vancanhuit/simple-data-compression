@@ -13,7 +13,7 @@ class TestCompress(object):
         assert q.get()[1] == Node('a', 1)
         assert q.get()[1] == Node('b', 2)
 
-    def test_get_code(self):
+    def test_get_codes(self):
         child1 = Node('a', 1)
         child2 = Node('b', 2)
         child3 = Node('', 3, child1, child2)
