@@ -5,9 +5,9 @@ data = 'aa bbb cccc'
 frequencies = collections.Counter(data)
 root = compress.build_tree(frequencies)
 codes = compress.get_codes(root)
-compressed_data = compress.compress(root, data)
-decompressed_data = decompress.decompress(root, compressed_data)
+encoded_str = compress.get_encoded_str(root, data)
+decoded_str = decompress.get_decoded_str(root, encoded_str)
 
 print(codes)
-print(compressed_data)
-print(decompressed_data)
+print(encoded_str)
+print(decoded_str)

@@ -7,6 +7,6 @@ class TestDecompress(object):
         data = 'aab'
         frequencies = collections.Counter(data)
         root = compress.build_tree(frequencies)
-        compressed_data = compress.compress(root, data)
-        decompressed_data = decompress.decompress(root, compressed_data)
-        assert decompressed_data == data
+        encoded_str = compress.get_encoded_str(root, data)
+        decoded_str = decompress.get_decoded_str(root, encoded_str)
+        assert decoded_str == data

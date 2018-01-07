@@ -6,7 +6,7 @@ import collections
 
 
 class TestCompress(object):
-    def test_create_queue_from_data(self):
+    def test_create_queue_from_frequencies(self):
         frequencies = {'a': 1, 'b': 2}
         q = compress.create_queue_from_frequencies(frequencies)
         assert not q.empty()
@@ -30,14 +30,15 @@ class TestCompress(object):
         assert codes['b'] == '01'
         assert codes['c'] == '1'
 
-    def test_compress(self):
+    def test_build_tree(self):
         frequencies = {'a': 1, 'b': 2}
         root = compress.build_tree(frequencies)
         assert type(root) is Node
+        assert root.freq == 3
 
-    def test_get_encoded_data(self):
+    def test_get_encoded_str(self):
         data = 'aab'
         frequencies = collections.Counter(data)
         root = compress.build_tree(frequencies)
-        compressed_data = compress.compress(root, data)
-        assert compressed_data == '110'
+        encoded_str = compress.get_encoded_str(root, data)
+        assert encoded_str == '110'

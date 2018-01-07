@@ -3,7 +3,7 @@ from queue import PriorityQueue
 import collections
 
 
-def compress(root, data):
+def get_encoded_str(root, data):
     codes = get_codes(root)
     compressed_data = []
     for d in data:

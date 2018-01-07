@@ -1,7 +1,7 @@
-def decompress(root, compressed_data):
-    decompressed_data = []
+def get_decoded_str(root, encoded_str):
+    decoded_data = []
     current = root
-    for code in compressed_data:
+    for code in encoded_str:
         if code == "0":
             current = current.left
         else:
@@ -9,6 +9,6 @@ def decompress(root, compressed_data):
 
         if current.is_leaf():
             char = current.char
-            decompressed_data.append(char)
+            decoded_data.append(char)
             current = root
-    return ''.join(decompressed_data)
+    return ''.join(decoded_data)
