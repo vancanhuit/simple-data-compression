@@ -1,7 +1,8 @@
 {
     "python.pythonPath": "/home/vancanhuit/workspace/python3/bin/python",
     "python.unitTest.pyTestArgs": [
-        "huffman"
+        "huffman",
+        "helpers"
     ],
     "python.unitTest.pyTestEnabled": true
 }
