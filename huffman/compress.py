@@ -11,8 +11,7 @@ def compress(data):
         q.put((new_node.freq, new_node))
 
     root = q.get()[1]
-    codes = get_codes(root)
-    return codes
+    return root
 
 
 def create_queue_from_data(data):

@@ -31,9 +31,5 @@ class TestCompress(object):
 
     def test_compress(self):
         data = {'a': 1, 'b': 2}
-        codes = compress.compress(data)
-        assert type(codes) is dict
-        assert 'a' in codes.keys()
-        assert 'b' in codes.keys()
-        assert codes['a'] == '0'
-        assert codes['b'] == '1'
+        root = compress.compress(data)
+        assert type(root) is Node
