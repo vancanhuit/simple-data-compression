@@ -13,16 +13,14 @@ def compress(input_file, output_path):
 
     with open(input_file, 'rb') as f:
         data = [b for b in f.read()]
-        frequencies = collections.Counter(data)
-        root = build_tree(frequencies)
-        codes = get_codes(root)
-        print(codes)
-        encoded_str = get_encoded_str(root, data)
-        print(len(data))
-        print(len(encoded_str) // 8)
-        padded_encoded_str = utility.pad_encoded_str(encoded_str)
-        byte_data = utility.get_byte_array(padded_encoded_str)
-        utility.write_byte_array_to_file(byte_data, output_file)
+
+    frequencies = collections.Counter(data)
+    root = build_tree(frequencies)
+    codes = get_codes(root)
+    encoded_str = get_encoded_str(root, data)
+    padded_encoded_str = utility.pad_encoded_str(encoded_str)
+    byte_data = utility.get_byte_array(padded_encoded_str)
+    utility.write_byte_array_to_file(byte_data, output_file)
 
 
 def get_encoded_str(root, data):

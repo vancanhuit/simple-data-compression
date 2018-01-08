@@ -1,9 +1,10 @@
 from huffman import decompress, compress
 import collections
+import os
 
 
 class TestDecompress(object):
-    def test_decompress(self):
+    def test_get_decoded_str(self):
         data = 'aab'
         frequencies = collections.Counter(data)
         root = compress.build_tree(frequencies)

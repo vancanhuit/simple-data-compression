@@ -3,6 +3,7 @@ from huffman import compress
 from queue import PriorityQueue
 from huffman.node import Node
 import collections
+import os
 
 
 class TestCompress(object):
@@ -44,6 +45,6 @@ class TestCompress(object):
         assert encoded_str == '110'
 
     def test_compress(self):
-        input_file = '/home/vancanhuit/Pictures/Lenna.png'
-        output_path = '/home/vancanhuit/Desktop'
-        compress.compress(input_file, output_path)
+        input_file = os.path.expanduser('~/Desktop/demo.txt')
+        output_path = os.path.expanduser('~/Desktop')
+        root = compress.compress(input_file, output_path)
