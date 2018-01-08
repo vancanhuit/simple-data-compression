@@ -22,12 +22,12 @@ class TestUtility(object):
 
     def test_write_byte_array_to_file(self):
         b = bytes(b'\x05\x06')
-        file = os.path.expanduser('~/Desktop/output.huffman')
+        file = os.path.join(os.getcwd(), 'data', 'output.huffman')
         utility.write_byte_array_to_file(b, file)
         assert os.path.exists(file)
 
     def test_read_bytes_from_file(self):
-        file = os.path.expanduser('~/Desktop/output.huffman')
+        file = os.path.join(os.getcwd(), 'data', 'output.huffman')
         b = utility.read_bytes_from_file(file)
         assert type(b) is bytes
         assert len(b) == 2

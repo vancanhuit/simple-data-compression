@@ -45,6 +45,8 @@ class TestCompress(object):
         assert encoded_str == '110'
 
     def test_compress(self):
-        input_file = os.path.expanduser('~/Desktop/demo.txt')
-        output_path = os.path.expanduser('~/Desktop')
+        input_file = os.path.join(
+            os.getcwd(), 'data', 'uncompressed', 'demo.txt')
+        output_path = os.path.join(
+            os.getcwd(), 'data', 'compressed')
         root = compress.compress(input_file, output_path)
