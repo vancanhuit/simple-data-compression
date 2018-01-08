@@ -4,6 +4,7 @@ import os
 
 
 class TestDecompress(object):
+    ''' Test functions in decompress module '''
     def test_get_decoded_str(self):
         data = 'aab'
         frequencies = collections.Counter(data)

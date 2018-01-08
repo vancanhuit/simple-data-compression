@@ -1,4 +1,5 @@
 class Node(object):
+    ''' This class represents a node in the binary tree '''
     def __init__(self, char, freq, left=None, right=None):
         self.char = char
         self.freq = freq

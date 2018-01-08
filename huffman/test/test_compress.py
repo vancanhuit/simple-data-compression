@@ -7,6 +7,7 @@ import os
 
 
 class TestCompress(object):
+    ''' Test functions in compress module '''
     def test_create_queue_from_frequencies(self):
         frequencies = {'a': 1, 'b': 2}
         q = compress.create_queue_from_frequencies(frequencies)

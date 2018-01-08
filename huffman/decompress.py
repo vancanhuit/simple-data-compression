@@ -1,4 +1,8 @@
+''' This module contains function for implementing Huffman decoding '''
+
+
 def get_decoded_str(root, encoded_str):
+    ''' Decode encoded string '''
     decoded_data = []
     current = root
     for code in encoded_str:
