@@ -42,3 +42,8 @@ class TestCompress(object):
         root = compress.build_tree(frequencies)
         encoded_str = compress.get_encoded_str(root, data)
         assert encoded_str == '110'
+
+    def test_compress(self):
+        input_file = '/home/vancanhuit/Pictures/Lenna.png'
+        output_path = '/home/vancanhuit/Desktop'
+        compress.compress(input_file, output_path)
