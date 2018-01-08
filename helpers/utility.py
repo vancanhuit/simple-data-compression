@@ -1,4 +1,6 @@
 def pad_encoded_str(encoded_str):
+    ''' Return encoded string with padding zero
+    for storing in file in bytes '''
     extra_zero = 8 - len(encoded_str) % 8
     padded_encoded_str = '0' * extra_zero + encoded_str
     extra_zero_info = '{0:08b}'.format(extra_zero)
@@ -7,6 +9,7 @@ def pad_encoded_str(encoded_str):
 
 
 def remove_padding(padded_encoded_str):
+    ''' Return encoded string with padding zero removed '''
     extra_zero_info = padded_encoded_str[:8]
     extra_zero = int(extra_zero_info, 2)
     padded_encoded_str = padded_encoded_str[8:]
@@ -15,6 +18,8 @@ def remove_padding(padded_encoded_str):
 
 
 def get_byte_array(padded_encoded_str):
+    ''' Convert encoded string with padding zero added into bytes
+    for storing to file in bytes '''
     b = bytearray()
     length = len(padded_encoded_str)
     for i in range(0, length, 8):
@@ -24,11 +29,13 @@ def get_byte_array(padded_encoded_str):
 
 
 def write_byte_array_to_file(byte_array, file):
+    ''' Write bytes to file in binary mode '''
     with open(file, 'wb') as f:
         f.write(byte_array)
 
 
 def read_bytes_from_file(file):
+    ''' Read bytes from file in binary mode '''
     b = bytes()
     with open(file, 'rb') as f:
         b = f.read()
@@ -36,6 +43,7 @@ def read_bytes_from_file(file):
 
 
 def convert_bytes_to_bit_str(byte_array):
+    ''' Convert bytes to bit string for decoding '''
     bin_format = '{0:08b}'
     bit_data = []
     for b in byte_array:
