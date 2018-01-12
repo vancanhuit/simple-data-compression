@@ -1,16 +1,16 @@
 import pytest
-from huffman import compress
+from huffman import compressor
 from queue import PriorityQueue
 from huffman.node import Node
 import collections
 import os
 
 
-class TestCompress(object):
+class TestCompressor(object):
     ''' Test functions in compress module '''
     def test_create_queue_from_frequencies(self):
         frequencies = {'a': 1, 'b': 2}
-        q = compress.create_queue_from_frequencies(frequencies)
+        q = compressor.create_queue_from_frequencies(frequencies)
         assert not q.empty()
         assert q.qsize() == 2
         assert q.get()[1] == Node('a', 1)
@@ -23,7 +23,7 @@ class TestCompress(object):
         child4 = Node('c', 4)
         root = Node('', 7, child3, child4)
 
-        codes = compress.get_codes(root)
+        codes = compressor.get_codes(root)
         assert type(codes) is dict
         assert 'a' in codes.keys()
         assert 'b' in codes.keys()
@@ -34,15 +34,15 @@ class TestCompress(object):
 
     def test_build_tree(self):
         frequencies = {'a': 1, 'b': 2}
-        root = compress.build_tree(frequencies)
+        root = compressor.build_tree(frequencies)
         assert type(root) is Node
         assert root.freq == 3
 
     def test_get_encoded_str(self):
         data = 'aab'
         frequencies = collections.Counter(data)
-        root = compress.build_tree(frequencies)
-        encoded_str = compress.get_encoded_str(root, data)
+        root = compressor.build_tree(frequencies)
+        encoded_str = compressor.get_encoded_str(root, data)
         assert encoded_str == '110'
 
     def test_compress(self):
@@ -50,5 +50,5 @@ class TestCompress(object):
             os.getcwd(), 'data', 'uncompressed', 'demo.txt')
         output_path = os.path.join(
             os.getcwd(), 'data', 'compressed')
-        output_file = compress.compress(input_file, output_path)
+        output_file = compressor.compress(input_file, output_path)
         assert os.path.exists(output_file)

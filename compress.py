@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-import huffman.compress
+import huffman.compressor
 import collections
 import os
 import argparse
 import sys
 
 
-''' This script is used for executing algorithms via command line interface '''
+''' This script is used for executing compression algorithms
+via command line interface '''
 # Command line parser
 parser = argparse.ArgumentParser(
     description='Compress a file and store it in a path')
@@ -38,7 +39,7 @@ print('Uncompressed size: {} bytes'.format(uncompressed_size))
 
 print('===== Using {} algorithm ======'.format(alg.upper()))
 if alg == 'huffman':
-    output_file = huffman.compress.compress(input_file, output_path)
+    output_file = huffman.compressor.compress(input_file, output_path)
     compressed_size = os.stat(output_file).st_size
     print('Compressed size: {} bytes'.format(compressed_size))
     print('Compression ratio = {0} / {1} = {2:.3f}'.format(
