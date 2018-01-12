@@ -9,7 +9,7 @@ import sys
 ''' This script is used for executing algorithms via command line interface '''
 # Command line parser
 parser = argparse.ArgumentParser(
-    description='Compress a file and store it into a path')
+    description='Compress a file and store it in a path')
 parser.add_argument('input_file', help='input file to be compressed')
 parser.add_argument(
     'output_path', help='output path for storing decompressed output file')
