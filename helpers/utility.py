@@ -18,7 +18,7 @@ def remove_padding(padded_encoded_str):
 
 
 def get_byte_array(padded_encoded_str):
-    ''' Convert encoded string with padding zero added into bytes
+    ''' Convert padded encoded string into bytes
     for storing to file in bytes '''
     b = bytearray()
     length = len(padded_encoded_str)

@@ -15,7 +15,6 @@ class Node(object):
     def __eq__(self, other):
         if not isinstance(self, other.__class__):
             return False
-
         return self.char == other.char and self.freq == other.freq
 
     def __ne__(self, other):
