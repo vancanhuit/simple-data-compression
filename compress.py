@@ -37,12 +37,15 @@ if not os.path.isdir(output_path):
 uncompressed_size = os.stat(input_file).st_size
 print('Uncompressed size: {} bytes'.format(uncompressed_size))
 
-print('===== Using {} algorithm ======'.format(alg.upper()))
+print('===== Using {} compression algorithm ======'.format(alg.upper()))
+output_file = ''
 if alg == 'huffman':
     output_file = huffman.compressor.compress(input_file, output_path)
-    compressed_size = os.stat(output_file).st_size
-    print('Compressed size: {} bytes'.format(compressed_size))
-    print('Compression ratio = {0} / {1} = {2:.3f}'.format(
-        uncompressed_size, compressed_size,
-        uncompressed_size / compressed_size))
-    sys.exit(0)
+
+# Print some compression information
+compressed_size = os.stat(output_file).st_size
+print('Compressed size: {} bytes'.format(compressed_size))
+print('Compression ratio = {0} / {1} = {2:.3f}'.format(
+    uncompressed_size, compressed_size,
+    uncompressed_size / compressed_size))
+sys.exit(0)
