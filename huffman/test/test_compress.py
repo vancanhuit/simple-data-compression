@@ -50,4 +50,5 @@ class TestCompress(object):
             os.getcwd(), 'data', 'uncompressed', 'demo.txt')
         output_path = os.path.join(
             os.getcwd(), 'data', 'compressed')
-        root = compress.compress(input_file, output_path)
+        output_file = compress.compress(input_file, output_path)
+        assert os.path.exists(output_file)
