@@ -25,6 +25,7 @@ def compress(input_file, output_path):
     padded_encoded_str = utility.pad_encoded_str(encoded_str)
     byte_data = utility.get_byte_array(padded_encoded_str)
     utility.write_byte_array_to_file(byte_data, output_file)
+    return output_file
 
 
 def get_encoded_str(root, data):
@@ -33,14 +34,13 @@ def get_encoded_str(root, data):
     compressed_data = []
     for d in data:
         compressed_data.append(codes[d])
-
     return ''.join(compressed_data)
 
 
 def build_tree(frequencies):
     ''' Build Huffman tree and return its root '''
     q = create_queue_from_frequencies(frequencies)
-    while not (q.qsize() == 1):
+    while q.qsize() > 1:
         left = q.get()[1]
         right = q.get()[1]
         new_node = Node('', left.freq + right.freq, left, right)
@@ -70,7 +70,7 @@ def get_codes(root):
 
 
 def _assign_codes(current, codes, code):
-    ''' Recursively get codes '''
+    ''' Recursively get codes helper '''
     if current.is_leaf():
         key = current.char
         codes[key] = ''.join(code)
