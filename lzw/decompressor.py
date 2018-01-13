@@ -1,5 +1,7 @@
 import os
 
+''' This module implement LZW decompression algorithm '''
+
 
 def decompress(input_file, output_path):
     input_filename, input_fileext = os.path.splitext(
@@ -10,6 +12,8 @@ def decompress(input_file, output_path):
     with open(input_file, 'rb') as f:
         data = f.read()
 
+    # Because we store codes in 2-bytes in file so when reading it back,
+    # we must read each 2 bytes for converting back properly
     step = 2
     length = len(data)
     codes = []

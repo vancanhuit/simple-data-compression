@@ -6,11 +6,12 @@ import argparse
 import sys
 
 
-''' This script is used for executing compression algorithms
-via command line interface '''
+'''
+This script is used for executing compression
+via command line interface
+'''
 # Command line parser
-parser = argparse.ArgumentParser(
-    description='Compress a file and store compressed file in a path')
+parser = argparse.ArgumentParser(description='Compress a file')
 parser.add_argument('input_file', help='input file to be compressed')
 parser.add_argument(
     'output_path', help='output path for storing decompressed output file')

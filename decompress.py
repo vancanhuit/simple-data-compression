@@ -5,11 +5,13 @@ import argparse
 import sys
 
 
-''' This script is used for executing compression algorithms
-via command line interface '''
+'''
+This script is used for executing decompression
+via command line interface
+'''
 # Command line parser
 parser = argparse.ArgumentParser(
-    description='Decompress a file and store uncompressed data in file')
+    description='Decompress a file')
 parser.add_argument('input_file', help='input file to be decompressed')
 parser.add_argument(
     'output_path', help='output path for storing uncompressed output file')

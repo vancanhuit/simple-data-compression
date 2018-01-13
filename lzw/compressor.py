@@ -1,6 +1,9 @@
 import os
 
 
+''' This module implement LZW compression algorithm '''
+
+
 def compress(input_file, output_path):
     input_filename, input_fileext = os.path.splitext(
         os.path.basename(input_file))
@@ -12,6 +15,7 @@ def compress(input_file, output_path):
 
     codes = encode(data)
 
+    # write codes into file with 2-bytes for each code
     with open(output_file, 'wb') as out:
         for c in codes:
             out.write((c).to_bytes(2, byteorder='big'))
