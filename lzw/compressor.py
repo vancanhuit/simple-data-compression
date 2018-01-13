@@ -3,9 +3,7 @@ import os
 
 def encode(data):
     # Initialize dictionary
-    dic = {}
-    for c in range(0, 256):
-        dic[chr(c)] = c
+    dic = {chr(c): c for c in range(0, 256)}
     chars = dic.keys()
     max_code = 255
 

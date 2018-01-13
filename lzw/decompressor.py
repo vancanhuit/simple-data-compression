@@ -1,8 +1,6 @@
 def decode(codes):
     # Initialize dictionary
-    dic = {}
-    for c in range(0, 256):
-        dic[c] = chr(c)
+    dic = {c: chr(c) for c in range(0, 256)}
     max_code = 255
 
     s = None
