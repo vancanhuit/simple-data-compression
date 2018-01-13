@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import huffman.compressor
-import collections
+import lzw.compressor
 import os
 import argparse
 import sys
@@ -10,7 +10,7 @@ import sys
 via command line interface '''
 # Command line parser
 parser = argparse.ArgumentParser(
-    description='Compress a file and store it in a path')
+    description='Compress a file and store compressed file in a path')
 parser.add_argument('input_file', help='input file to be compressed')
 parser.add_argument(
     'output_path', help='output path for storing decompressed output file')
@@ -41,9 +41,12 @@ print('===== Using {} compression algorithm ======'.format(alg.upper()))
 output_file = ''
 if alg == 'huffman':
     output_file = huffman.compressor.compress(input_file, output_path)
+elif alg == 'lzw':
+    output_file = lzw.compressor.compress(input_file, output_path)
 
 # Print some compression information
 compressed_size = os.stat(output_file).st_size
+print('Output file: {}'.format(output_file))
 print('Compressed size: {} bytes'.format(compressed_size))
 print('Compression ratio = {0} / {1} = {2:.3f}'.format(
     uncompressed_size, compressed_size,

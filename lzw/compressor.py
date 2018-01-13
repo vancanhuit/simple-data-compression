@@ -1,6 +1,24 @@
 import os
 
 
+def compress(input_file, output_path):
+    input_filename, input_fileext = os.path.splitext(
+        os.path.basename(input_file))
+    output_filename = input_filename + '.lzw'
+    output_file = os.path.join(output_path, output_filename)
+
+    with open(input_file, 'r') as f:
+        data = f.read()
+
+    codes = encode(data)
+
+    with open(output_file, 'wb') as out:
+        for c in codes:
+            out.write((c).to_bytes(2, byteorder='big'))
+
+    return output_file
+
+
 def encode(data):
     # Initialize dictionary
     dic = {chr(c): c for c in range(0, 256)}
