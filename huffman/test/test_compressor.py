@@ -52,3 +52,4 @@ class TestCompressor(object):
             os.getcwd(), 'data', 'compressed')
         output_file = compressor.compress(input_file, output_path)
         assert os.path.exists(output_file)
+        assert os.path.isfile(output_file)

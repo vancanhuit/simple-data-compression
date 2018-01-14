@@ -3,6 +3,7 @@ import lzw.decompressor
 import os
 import argparse
 import sys
+import huffman.decompressor
 
 
 '''
@@ -43,6 +44,8 @@ output_file = ''
 
 if alg == 'lzw':
     output_file = lzw.decompressor.decompress(input_file, output_path)
+elif alg == 'huffman':
+    output_file = huffman.decompressor.decompress(input_file, output_path)
 
 uncomprssed_size = os.stat(output_file).st_size
 print('Output file: {}'.format(output_file))

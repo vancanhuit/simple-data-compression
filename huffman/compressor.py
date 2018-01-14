@@ -3,6 +3,7 @@ from queue import PriorityQueue
 import collections
 import os
 from helpers import utility
+import pickle
 
 ''' This module contains functions for implmenting Huffman encoding '''
 
@@ -22,11 +23,12 @@ def compress(input_file, output_path):
     # Get frequency table from data
     frequencies = collections.Counter(data)
     root = build_tree(frequencies)
-    codes = get_codes(root)
     encoded_str = get_encoded_str(root, data)
     padded_encoded_str = utility.pad_encoded_str(encoded_str)
     byte_data = utility.get_byte_array(padded_encoded_str)
-    utility.write_byte_array_to_file(byte_data, output_file)
+
+    with open(output_file, 'wb') as out:
+        pickle.dump((frequencies, byte_data), out)
     return output_file
 
 
