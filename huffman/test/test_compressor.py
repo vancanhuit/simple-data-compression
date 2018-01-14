@@ -1,7 +1,7 @@
 import pytest
 from huffman import compressor
 from queue import PriorityQueue
-from huffman.node import Node
+from entity.node import Node
 import collections
 import os
 

@@ -1,4 +1,4 @@
-from huffman.node import Node
+from entity.node import Node
 from queue import PriorityQueue
 
 

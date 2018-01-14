@@ -3,7 +3,8 @@
     "python.unitTest.pyTestArgs": [
         "huffman",
         "helpers",
-        "lzw"
+        "lzw",
+        "entity"
     ],
     "python.unitTest.pyTestEnabled": true
 }
