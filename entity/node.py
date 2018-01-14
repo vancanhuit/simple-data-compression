@@ -10,7 +10,8 @@ class Node(object):
         return self.left is None and self.right is None
 
     def __lt__(self, other):
-        return self.freq < other.freq
+        ''' Sorting critirion for inserting into priority queue '''
+        return (self.freq < other.freq)
 
     def __eq__(self, other):
         if not isinstance(self, other.__class__):

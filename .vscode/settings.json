@@ -4,6 +4,7 @@
         "huffman",
         "helpers",
         "lzw",
+        "shannon",
         "entity"
     ],
     "python.unitTest.pyTestEnabled": true

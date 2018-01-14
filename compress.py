@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import huffman.compressor
 import lzw.compressor
+import shannon.compressor
 import os
 import argparse
 import sys
-
 
 '''
 This script is used for executing compression
@@ -44,6 +44,8 @@ if alg == 'huffman':
     output_file = huffman.compressor.compress(input_file, output_path)
 elif alg == 'lzw':
     output_file = lzw.compressor.compress(input_file, output_path)
+else:
+    output_file = shannon.compressor.compress(input_file, output_path)
 
 # Print some compression information
 compressed_size = os.stat(output_file).st_size

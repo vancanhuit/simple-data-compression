@@ -17,6 +17,62 @@ def remove_padding(padded_encoded_str):
     return encoded_str
 
 
+def get_encoded_str(root, data):
+    ''' Return encoded string of original data '''
+    codes = get_codes(root)
+    compressed_data = []
+    for d in data:
+        compressed_data.append(codes[d])
+    return ''.join(compressed_data)
+
+
+def get_decoded_str(root, encoded_str):
+    ''' Decode encoded string '''
+    decoded_data = []
+    current = root
+    for code in encoded_str:
+        if code == "0":
+            current = current.left
+        else:
+            current = current.right
+
+        if current.is_leaf():
+            char = current.char
+            if type(char) is int:
+                char = chr(char)
+            decoded_data.append(char)
+            current = root
+    return ''.join(decoded_data)
+
+
+def get_codes(root):
+    ''' Return codes for each element in original data '''
+    current = root
+    codes = {}
+    code = []
+
+    _assign_codes(root, codes, code)
+    return codes
+
+
+def _assign_codes(current, codes, code):
+    ''' Recursively get codes helper '''
+    if current.is_leaf():
+        key = current.char
+        codes[key] = ''.join(code)
+        return
+
+    if current.left:
+        code.append('0')
+        _assign_codes(current.left, codes, code)
+        code.pop()
+
+    if current.right:
+        code.append('1')
+        _assign_codes(current.right, codes, code)
+        code.pop()
+
+
 def get_byte_array(padded_encoded_str):
     ''' Convert padded encoded string into bytes
     for storing to file in bytes '''

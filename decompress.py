@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import lzw.decompressor
+import shannon.decompressor
+import huffman.decompressor
 import os
 import argparse
 import sys
-import huffman.decompressor
 
 
 '''
@@ -46,6 +47,8 @@ if alg == 'lzw':
     output_file = lzw.decompressor.decompress(input_file, output_path)
 elif alg == 'huffman':
     output_file = huffman.decompressor.decompress(input_file, output_path)
+else:
+    output_file = shannon.decompressor.decompress(input_file, output_path)
 
 uncomprssed_size = os.stat(output_file).st_size
 print('Output file: {}'.format(output_file))

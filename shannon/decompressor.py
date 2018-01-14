@@ -1,9 +1,7 @@
-import pickle
 import os
-from huffman import compressor
+import pickle
 from helpers import utility
-
-''' This module contains function for implementing Huffman decoding '''
+from shannon import compressor
 
 
 def decompress(input_file, output_path):
@@ -16,11 +14,11 @@ def decompress(input_file, output_path):
         data = pickle.load(f)
 
     frequencies, byte_array = data
-    root = compressor.build_tree(frequencies)
+    nodes = compressor.create_nodes_from_frequencies(frequencies)
+    root = compressor.build_tree(nodes)
     bit_str = utility.convert_bytes_to_bit_str(byte_array)
     encoded_str = utility.remove_padding(bit_str)
     decoded_str = utility.get_decoded_str(root, encoded_str)
-
     with open(output_file, 'w') as out:
         out.write(decoded_str)
     return output_file

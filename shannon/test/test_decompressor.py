@@ -1,15 +1,11 @@
-from huffman import decompressor, compressor
-import collections
+from shannon import decompressor
 import os
-from helpers import utility
 
 
 class TestDecompressor(object):
-    ''' Test functions in decompress module '''
-
     def test_decompress(self):
         input_file = os.path.join(
-            os.getcwd(), 'data', 'compressed', 'demo.huffman')
+            os.getcwd(), 'data', 'compressed', 'demo-fano.fano')
         output_path = os.path.join(os.getcwd(), 'data', 'uncompressed')
         output_file = decompressor.decompress(input_file, output_path)
         assert os.path.exists(output_file)

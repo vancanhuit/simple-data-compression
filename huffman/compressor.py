@@ -17,28 +17,19 @@ def compress(input_file, output_path):
     output_filename = input_filename + '.huffman'
     output_file = os.path.join(output_path, output_filename)
 
-    with open(input_file, 'rb') as f:
-        data = [b for b in f.read()]
+    with open(input_file, 'r') as f:
+        data = f.read()
 
     # Get frequency table from data
     frequencies = collections.Counter(data)
     root = build_tree(frequencies)
-    encoded_str = get_encoded_str(root, data)
+    encoded_str = utility.get_encoded_str(root, data)
     padded_encoded_str = utility.pad_encoded_str(encoded_str)
     byte_data = utility.get_byte_array(padded_encoded_str)
 
     with open(output_file, 'wb') as out:
         pickle.dump((frequencies, byte_data), out)
     return output_file
-
-
-def get_encoded_str(root, data):
-    ''' Return encoded string of original data '''
-    codes = get_codes(root)
-    compressed_data = []
-    for d in data:
-        compressed_data.append(codes[d])
-    return ''.join(compressed_data)
 
 
 def build_tree(frequencies):
@@ -61,31 +52,3 @@ def create_queue_from_frequencies(frequencies):
         n = Node(k, v)
         q.put((n.freq, n))
     return q
-
-
-def get_codes(root):
-    ''' Return codes for each element in original data '''
-    current = root
-    codes = {}
-    code = []
-
-    _assign_codes(root, codes, code)
-    return codes
-
-
-def _assign_codes(current, codes, code):
-    ''' Recursively get codes helper '''
-    if current.is_leaf():
-        key = current.char
-        codes[key] = ''.join(code)
-        return
-
-    if current.left:
-        code.append('0')
-        _assign_codes(current.left, codes, code)
-        code.pop()
-
-    if current.right:
-        code.append('1')
-        _assign_codes(current.right, codes, code)
-        code.pop()
