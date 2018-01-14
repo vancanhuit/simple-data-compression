@@ -84,20 +84,6 @@ def get_byte_array(padded_encoded_str):
     return b
 
 
-def write_byte_array_to_file(byte_array, file):
-    ''' Write bytes to file in binary mode '''
-    with open(file, 'wb') as f:
-        f.write(byte_array)
-
-
-def read_bytes_from_file(file):
-    ''' Read bytes from file in binary mode '''
-    b = bytes()
-    with open(file, 'rb') as f:
-        b = f.read()
-    return b
-
-
 def convert_bytes_to_bit_str(byte_array):
     ''' Convert bytes to bit string for decoding '''
     bin_format = '{0:08b}'
