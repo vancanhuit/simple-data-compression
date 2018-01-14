@@ -47,7 +47,7 @@ class TestCompressor(object):
 
     def test_compress(self):
         input_file = os.path.join(
-            os.getcwd(), 'data', 'uncompressed', 'demo.txt')
+            os.getcwd(), 'data', 'test', 'demo.txt')
         output_path = os.path.join(
             os.getcwd(), 'data', 'compressed')
         output_file = compressor.compress(input_file, output_path)

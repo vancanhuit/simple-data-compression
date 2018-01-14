@@ -10,7 +10,7 @@ class TestCompressor(object):
 
     def test_compress(self):
         input_file = os.path.join(
-            os.getcwd(), 'data', 'demo-lzw.txt')
+            os.getcwd(), 'data', 'test', 'demo-lzw.txt')
         output_path = os.path.join(os.getcwd(), 'data', 'compressed')
         output_file = compressor.compress(input_file, output_path)
         assert os.path.exists(output_file)
