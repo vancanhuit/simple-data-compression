@@ -30,7 +30,7 @@ optional arguments:
 ```
 
 When run this script, you must choose an algorithm, pass an input file to be compressed, an output path for storing decompressed file.
-Huffman algorithm will be default algorithm when run this script. To run with another algorithm, use option `--alg` to specify an algorithm you want. For example:
+Huffman algorithm will be default when run this script. To run with another algorithm, use option `--alg` to specify an algorithm you want. For example:
 
 ```sh
 $ ./compress.py ~/Desktop/5-1300msg2.txt ~/Desktop
