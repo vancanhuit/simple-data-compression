@@ -79,3 +79,6 @@ Compressed size: 6065 bytes
 Output file: /home/vancanhuit/Desktop/5-1300msg2.txt
 Uncompressed size: 10033 bytes
 ```
+
+## Test data
+Text files is taken from [Ling Spam dataset](http://csmining.org/index.php/ling-spam-datasets.html). This text dataset is divided into 10 parts, located in `data/test` folder.
