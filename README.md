@@ -29,7 +29,7 @@ optional arguments:
                         choose an algorithm, default is huffman
 ```
 
-When run this script, you must choose one of three algorithm (huffman, fano, lzw), pass an input file to be compressed, an output path for storing decompressed file.
+When run this script, you must choose one of three algorithm (`huffman`, `fano`, `lzw`), pass an `input file` to be compressed and an `output path` for storing decompressed file.
 Huffman algorithm will be default when run this script. To run with another algorithm, use option `--alg` to specify an algorithm you want. For example:
 
 ```sh
