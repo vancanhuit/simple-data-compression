@@ -24,12 +24,14 @@ def compress(input_file, output_path):
     byte_array = utility.get_byte_array(padded_encoded_str)
 
     with open(output_file, 'wb') as out:
+        # Serialize data to file
         pickle.dump((frequencies, byte_array), out)
 
     return output_file
 
 
 def build_tree(nodes):
+    ''' Build binary tree from node list '''
     length = len(nodes)
     if length == 1:
         return nodes[0]
@@ -41,15 +43,21 @@ def build_tree(nodes):
 
 
 def create_nodes_from_frequencies(frequencies):
+    ''' Create node list from frequency table and sort it
+    by frequency, then by alphabet in descending order '''
     nodes = []
     for k, v in frequencies.items():
         nodes.append(Node(k, v))
-    # Sort by frequencies, then by alphabet
+    # Sort by frequency, then by alphabet
     nodes.sort(key=attrgetter('freq', 'char'), reverse=True)
     return nodes
 
 
 def split(nodes):
+    '''Split ordered node list into two parts, with
+    total frequency counts of left part as close to total
+    of right part as possible. Return the index where node list
+    will be splitted.'''
     length = len(nodes)
     total = sum([n.freq for n in nodes])
     second_half_total = 0

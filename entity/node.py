@@ -10,7 +10,7 @@ class Node(object):
         return self.left is None and self.right is None
 
     def __lt__(self, other):
-        ''' Sorting critirion for inserting into priority queue '''
+        ''' Sorting criterion for inserting to priority queue '''
         return (self.freq < other.freq)
 
     def __eq__(self, other):

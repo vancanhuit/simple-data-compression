@@ -11,6 +11,7 @@ def decompress(input_file, output_path):
     output_file = os.path.join(output_path, output_filename)
 
     with open(input_file, 'rb') as f:
+        # Deserialize data from file
         data = pickle.load(f)
 
     frequencies, byte_array = data

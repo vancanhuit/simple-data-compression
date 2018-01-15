@@ -5,8 +5,6 @@ import os
 from helpers import utility
 import pickle
 
-''' This module contains functions for implmenting Huffman encoding '''
-
 
 def compress(input_file, output_path):
     ''' Compress input_file, store it in output_path and then
@@ -28,6 +26,7 @@ def compress(input_file, output_path):
     byte_data = utility.get_byte_array(padded_encoded_str)
 
     with open(output_file, 'wb') as out:
+        # Serialize data to file
         pickle.dump((frequencies, byte_data), out)
     return output_file
 

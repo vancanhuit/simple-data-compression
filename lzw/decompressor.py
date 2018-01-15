@@ -1,7 +1,5 @@
 import os
 
-''' This module implement LZW decompression algorithm '''
-
 
 def decompress(input_file, output_path):
     input_filename, input_fileext = os.path.splitext(

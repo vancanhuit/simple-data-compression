@@ -3,8 +3,6 @@ import os
 from huffman import compressor
 from helpers import utility
 
-''' This module contains function for implementing Huffman decoding '''
-
 
 def decompress(input_file, output_path):
     input_filename, input_fileext = os.path.splitext(
@@ -13,6 +11,7 @@ def decompress(input_file, output_path):
     output_file = os.path.join(output_path, output_filename)
 
     with open(input_file, 'rb') as f:
+        # Deserialize data to file
         data = pickle.load(f)
 
     frequencies, byte_array = data

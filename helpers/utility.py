@@ -38,8 +38,6 @@ def get_decoded_str(root, encoded_str):
 
         if current.is_leaf():
             char = current.char
-            if type(char) is int:
-                char = chr(char)
             decoded_data.append(char)
             current = root
     return ''.join(decoded_data)

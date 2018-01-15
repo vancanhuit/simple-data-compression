@@ -1,9 +1,6 @@
 import os
 
 
-''' This module implement LZW compression algorithm '''
-
-
 def compress(input_file, output_path):
     input_filename, input_fileext = os.path.splitext(
         os.path.basename(input_file))
