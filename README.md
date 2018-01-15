@@ -8,8 +8,17 @@
     ```sh
     $ [sudo] pip install pytest
     ```
+    To run unit tests, go to project directory and run the following command:
+    ```sh
+    $ pytest
+    ```
+- Install [Git](https://git-scm.com/) and clone this project into local:
+    ```sh
+    $ git clone https://github.com/vancanhuit/simple-data-compressing.git
+    $ cd simple-data-compressing
+    ```
 
-## Usage
+## Usage 
 
 To compress a file and store it in a path, run `compress.py` script. To show help, enter `./compress.py -h` command:
 
