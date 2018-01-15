@@ -89,5 +89,7 @@ Output file: /home/vancanhuit/Desktop/5-1300msg2.txt
 Uncompressed size: 10033 bytes
 ```
 
+> **Notes**: On Windows, you must run `python3 compress.py` instead of `./compress.py`.
+
 ## Test data
 Text files is taken from [Ling Spam dataset](http://csmining.org/index.php/ling-spam-datasets.html). This text dataset is divided into 10 parts, located in `data/test` folder.
