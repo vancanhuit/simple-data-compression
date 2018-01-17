@@ -12,7 +12,7 @@
     ```sh
     $ pytest
     ```
-- Install [Git](https://git-scm.com/) and clone this project into local:
+- Install [Git](https://git-scm.com/) and clone this project into local machine:
     ```sh
     $ git clone https://github.com/vancanhuit/simple-data-compressing.git
     $ cd simple-data-compressing
@@ -92,4 +92,4 @@ Uncompressed size: 10033 bytes
 > **Note**: Commands above are run on Ubuntu Linux system and applicable for other Linux and Unix systems. On Windows, you must run `python3 compress.py` instead of `./compress.py`.
 
 ## Test data
-Text files is taken from [Ling Spam dataset](http://csmining.org/index.php/ling-spam-datasets.html). This text dataset is divided into 10 parts, located in `data/test` folder.
+Text files used in this project is [Ling Spam dataset](http://csmining.org/index.php/ling-spam-datasets.html). This text dataset is divided into 10 parts, located in `data/test` folder.
