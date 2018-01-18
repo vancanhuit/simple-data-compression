@@ -1,4 +1,4 @@
-# Simple data compressing
+# Simple data compression
 
 ## Tools
 
