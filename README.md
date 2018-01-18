@@ -14,8 +14,8 @@
     ```
 - Install [Git](https://git-scm.com/) and clone this project into local machine:
     ```sh
-    $ git clone https://github.com/vancanhuit/simple-data-compressing.git
-    $ cd simple-data-compressing
+    $ git clone git@github.com:vancanhuit/simple-data-compression.git
+    $ cd simple-data-compression
     ```
 
 ## Usage 
