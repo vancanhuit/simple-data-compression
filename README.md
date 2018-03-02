@@ -30,7 +30,7 @@ Compress a file
 
 positional arguments:
   input_file            input file to be compressed
-  output_path           output path for storing decompressed output file
+  output_path           output path for storing compressed output file
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -66,7 +66,7 @@ Decompress a file
 
 positional arguments:
   input_file            input file to be decompressed
-  output_path           output path for storing uncompressed output file
+  output_path           output path for storing decompressed output file
 
 optional arguments:
   -h, --help            show this help message and exit
