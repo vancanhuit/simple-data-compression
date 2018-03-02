@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(
     description='Decompress a file')
 parser.add_argument('input_file', help='input file to be decompressed')
 parser.add_argument(
-    'output_path', help='output path for storing uncompressed output file')
+    'output_path', help='output path for storing decompressed output file')
 parser.add_argument(
     '--alg',
     help='choose an algorithm, default is huffman',
