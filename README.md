@@ -23,7 +23,7 @@
 To compress a file and store it in a path, run `compress.py` script. To show help, enter `./compress.py -h` command:
 
 ```sh
-$ ./compress -h
+$ ./compress.py -h
 usage: compress.py [-h] [--alg {huffman,fano,lzw}] input_file output_path
 
 Compress a file
