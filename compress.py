@@ -14,7 +14,7 @@ via command line interface
 parser = argparse.ArgumentParser(description='Compress a file')
 parser.add_argument('input_file', help='input file to be compressed')
 parser.add_argument(
-    'output_path', help='output path for storing decompressed output file')
+    'output_path', help='output path for storing compressed output file')
 parser.add_argument(
     '--alg',
     help='choose an algorithm, default is huffman',
